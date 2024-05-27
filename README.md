@@ -42,10 +42,32 @@ add styles to the header component:
 
 add global styles in style.css
 
-create a child component called user
+create a child component called user that will contain a list of users.
     -in terminal write: ng g c user
-        it will generate user component in src/app/user
+        generates user component in src/app/user with selector called 'app-user'.
+    -write the code for a single user(call it name) in its html file and give it some style.
+    -to render it on browser: 
+        2 steps
+        -import it in the parent comp(app.component.ts)
+        -follow parent comp html path and store this child selector in the form of a list. Then style these tags in parent comp.css.
+
+    -upload dummy-users.ts(has a bunch of dummy users with names and image identifier) in app folder.
+    -upload users folder(contains images of dummy users) in assets folder.
+
+So far, it was all static coding. DYNAMIC coding begins NOW:
+You want users name appear on the browser randomly everytime you refresh.
+    -create a property in the export class in user.comp.ts to draw a random user from dummy-users.ts. (this property becomes available in user.comp.html: CORE FEATURE of angular)
+    -import the array from dummy-users.ts first
     
+    -output this dynamic text to the browser
+        -in user.comp.html, replace NAME with the property created above using string intrapolation.
+        -you can access name, id or avatar using
+            property.name
+            property.id or 
+            property.avatar
+        -everytime you refresh browser, you'll see a different name
+
+
 
 
 # SecondAngularApp
