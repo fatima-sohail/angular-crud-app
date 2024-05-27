@@ -73,6 +73,13 @@ add an image with its respective name, everytime you refresh browser, you see a 
     -better practice is to create get() function in child.comp.ts and move the above code to get(). 
     -give it styling in both child and parent comp.
 
+bind an event listener (click) to the buttonin .html and define it in .ts
+    -check if its working by opening browser console in developer tools.
+
+change the user display everytime its clicked
+    -also called changing data of UI or state of UI.
+     -in .ts file, modify onclick func.
+
 
 # SecondAngularApp
 
