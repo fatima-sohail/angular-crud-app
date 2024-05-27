@@ -45,7 +45,8 @@ add global styles in style.css
 create a child component called user that will contain a list of users.
     -in terminal write: ng g c user
         generates user component in src/app/user with selector called 'app-user'.
-    -write the code for a single user(call it name) in its html file and give it some style.
+    -write the code for a single user(call it name) in its html file.
+    -give it styling.
     -to render it on browser: 
         2 steps
         -import it in the parent comp(app.component.ts)
@@ -67,7 +68,10 @@ You want users name appear on the browser randomly everytime you refresh.
             property.avatar
         -everytime you refresh browser, you'll see a different name
 
-
+add an image with its respective name, everytime you refresh browser, you see a different person with his image.
+    -in user.comp.html, bind the image with its name using property binder (CORE FEATURE of angular).
+    -better practice is to create get() function in child.comp.ts and move the above code to get(). 
+    -give it styling in both child and parent comp.
 
 
 # SecondAngularApp
