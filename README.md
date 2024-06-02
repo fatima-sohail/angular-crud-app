@@ -76,10 +76,28 @@ add an image with its respective name, everytime you refresh browser, you see a 
 bind an event listener (click) to the buttonin .html and define it in .ts
     -check if its working by opening browser console in developer tools.
 
-change the user display everytime its clicked
+change the user display everytime the button is clicked
     -also called changing data of UI or state of UI.
      -in .ts file, modify onclick func.
 
+add more users to the list in parent.html.
+-In the browser, you will see the same user a bunch of times, unless you click on them to change it.
+
+You don't want to change users randomly either by clicking or by refreshing. Instead, You want multiple different users in the list format.  
+You want child components to be used as elements(tags) to make them configurable so that they are re-usable. Re-use the same component but with different data (another CORE FEATURE of angular).
+    -comment out all the code that does the first part.
+    -so that we can set attributes and properties on the child element in the parent.html.
+        -start with adding the avatar property in the child element tag.
+            -decorate avatar with @Input property child.ts. It makes avatar accesseble to the parent.html. And it makes data in the child element customizable and re-usable.  
+            -same goes for the name property.
+            -make users file accessible to parent.html by importing and defining it in parent.comp.ts 
+            -in parent.html, provide values for the avatar and name for each user.
+            -define imagePath in child.ts
+        -modify user.html to see your code getting rendered on browser.
+            -replace selectedUser with name.
+            
+
+    
 
 # SecondAngularApp
 

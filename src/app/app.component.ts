@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header.component'; //short form of header.comp.ts
 import { UserComponent } from './user/user.component';
+import { DUMMY_USERS } from './dummy-users';
 
 
 
@@ -13,4 +14,5 @@ import { UserComponent } from './user/user.component';
 })
 export class AppComponent {
   title = 'second-angular-app';
+   users = DUMMY_USERS;
 }
