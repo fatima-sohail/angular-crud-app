@@ -15,7 +15,7 @@ main {
     gap: 0.5rem;
     overflow: auto;
     flex-direction: column;
-    width: 35%;
+    /* width: 35%; */
   }
   
   #fallback {

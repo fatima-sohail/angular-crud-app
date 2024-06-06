@@ -6,6 +6,9 @@ create a folder inside ANGULAR-APP:
 
     -to refresh the browser: ng serve
 
+    -to create a child component: ng g c componentname
+    it will be created inside app folder.
+
 Break the project into small components
 
 how to navigate parent and child components
@@ -83,18 +86,47 @@ change the user display everytime the button is clicked
 add more users to the list in parent.html.
 -In the browser, you will see the same user a bunch of times, unless you click on them to change it.
 
-You don't want to change users randomly either by clicking or by refreshing. Instead, You want multiple different users in the list format.  
-You want child components to be used as elements(tags) to make them configurable so that they are re-usable. Re-use the same component but with different data (another CORE FEATURE of angular).
-    -comment out all the code that does the first part.
-    -so that we can set attributes and properties on the child element in the parent.html.
-        -start with adding the avatar property in the child element tag.
-            -decorate avatar with @Input property child.ts. It makes avatar accesseble to the parent.html. And it makes data in the child element customizable and re-usable.  
-            -same goes for the name property.
-            -make users file accessible to parent.html by importing and defining it in parent.comp.ts 
-            -in parent.html, provide values for the avatar and name for each user.
-            -define imagePath in child.ts
-        -modify user.html to see your code getting rendered on browser.
-            -replace selectedUser with name.
+You don't want to change users randomly either by clicking or by refreshing. Instead, You want multiple different users in the list format.
+You want to pass customized, configurable and re-usable values to the components by using @Input decorators and @Output decorators.
+Both are defined in the child component.ts.
+
+    -Child uses @Input decorator to receive data from its parent component.
+        -How does this work?
+        -@input works with property binding
+        -if the parent component wants to pass data to the child comp, it binds the data to the property of the child comp.
+        -the child comp receives the data and uses it accordingly.
+
+        -app.component.html is passing 3 values to the child properties(id, avatar, name) using property binding in the child tag.
+        How does the child receives these inputs?
+        -in the child comp.ts you declare those properties with input decorator that you want to receive values from the parent component.
+        What happens when the child.comp.ts uses these inputs?
+        -it can use thsese input values in its html file, in our case, we used 'avatar' and 'name' inputs to display image and name respectively.
+        Parent.html is re-using ChildComponent 4 times(for 4 users) with different input values without modifying child.html.
+
+        
+    -Child uses @Output decorator to send data to the parent component.
+            How does this work?
+            -@Output works with event emitter()
+            -if the child component wants to communicate with the parent comp, it emits the event, which the parent can listen to 
+            and respond accordingly.
+
+        -use @output decorator to create eventEmitter in user.comp.ts, name it select
+            -when the button(in user.comp.html)is clicked, the onSelectedUser() emits the event with the user's ID.
+            -in parent.comp.html, onSelectEventHandler handles the event emitted by the child comp.ts
+            -this event handler is defined (in parent comp.html) to log the selected user's ID.
+            - in parent.comp.html bind select event with the event handler and pass ($event) in it. 
+            -($event) contains the data emitted by the child component(user's ID).
+
+Create another child component that outputs the name of the user whenever the button is clicked on the right side of the page.
+    -name it task
+    -copy the selector name in parent.html where it says "Tasks of the user"and replace it.
+    -you want to receive names from parent comp, so declare input decorator on name in child.ts
+    -bind it in task.html using {{}} and bind it in parent.html using []--> set its value to userName.
+    -declare userName in parent.ts
+    -everytime you click users button, you want to see name of that user displayed on the screen. how will this happen?
+        -when you click on a button, eventhandler function is called.
+        -inside the function, userName is stored in a temporary variable (called n), so everytime a button is clicked, userName gets updated.
+
             
 
     
