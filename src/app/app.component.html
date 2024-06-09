@@ -24,10 +24,11 @@
   Tasks of the user
 </main> -->
 
-<app-header></app-header> 
+<!-- <app-header></app-header> 
 
 <main>
   <ul id="users">
+
     <li>
       <app-user [avatar] = "users[0].avatar" [name] = "users[0].name" [id] = "users[0].id"
         (select) = onSelectedUserEventHandler(users[0].name)></app-user>
@@ -45,7 +46,27 @@
   </ul>
   
   <app-task [name] = "userName"></app-task>
-  <!-- Tasks of the user -->
+
+</main> -->
+
+
+<app-header></app-header> 
+
+<main>
+  <ul id="users">
+    @for (user of users; track user.id){
+      <li>
+        <app-user [user] = "user" (select) = onSelectedUserEventHandler($event)></app-user>
+      </li>
+    }
+    
+  </ul>
+
+  @if (chinesedUser){
+    <app-task [name] = "chinesedUser.name"></app-task>
+  } @else {
+    <p id="fallback">Select the user first to see their tasks</p>
+  }
+  
+
 </main>
-
-

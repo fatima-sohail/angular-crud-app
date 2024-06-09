@@ -11,19 +11,50 @@ import { TaskComponent } from './task/task.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+// export class AppComponent {
+//   title = 'second-angular-app';
+//   users = DUMMY_USERS;
+  
+//   //  onUserSelected(id: string){
+//   //   this.selectedUserId = id;
+//   //  }
+
+//   userName!: string;
+
+//   onSelectedUserEventHandler(n: string) {
+//     this.userName = n;
+//   }
+
+// }
+
+// export class AppComponent {
+//   title = 'second-angular-app';
+//   users = DUMMY_USERS;
+  
+//  selectedUserId = 'u1';
+
+//  get chinesedUser (){
+//   return this.users.find((user)=> user.id === this.selectedUserId )
+
+//  }
+
+//   onSelectedUserEventHandler(value: string) {
+//     this.selectedUserId = value;
+//   }
+// }
+
 export class AppComponent {
   title = 'second-angular-app';
   users = DUMMY_USERS;
   
-  //  onUserSelected(id: string){
-  //   this.selectedUserId = id;
-  //  }
+ selectedUserId!: string;
 
-  userName!: string;
+ get chinesedUser (){
+  return this.users.find((user)=> user.id === this.selectedUserId )
 
-  onSelectedUserEventHandler(n: string) {
-    this.userName = n;
+ }
+
+  onSelectedUserEventHandler(value: string) {
+    this.selectedUserId = value;
   }
-
-
 }

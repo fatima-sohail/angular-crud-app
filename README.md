@@ -122,10 +122,29 @@ Create another child component that outputs the name of the user whenever the bu
     -copy the selector name in parent.html where it says "Tasks of the user"and replace it.
     -you want to receive names from parent comp, so declare input decorator on name in child.ts
     -bind it in task.html using {{}} and bind it in parent.html using []--> set its value to userName.
+    -in the same file, update (select) event inside the app-user tag 
     -declare userName in parent.ts
-    -everytime you click users button, you want to see name of that user displayed on the screen. how will this happen?
+    -everytime you click users button, you want to see the name of that user displayed on the screen. how will this happen?
         -when you click on a button, eventhandler function is called.
         -inside the function, userName is stored in a temporary variable (called n), so everytime a button is clicked, userName gets updated.
+
+    how to make the code more dynamic and short?
+    -take the help of id property to display the user name instead of name property.
+     -nestle together these properties(name, id, avatar) in one output decorator in user component.ts
+     -shorten the code in parent.html by introducing *for to reach out to every object in the DUMMY_USERS array.
+     -within the parent.html, bind the name property to chineseUser.
+     -define chineseUser in parent.ts.
+        how?
+        -declare userID
+        -use event hadler function to update the user id when the button is clicked and use get function to retreive that updated value.
+        -this get function is what you add in the parent html.
+
+    Using if and else statement in parent.html:
+        -if selectedUser is defined, display the name of the user when a button is clicked,
+        else, display: 'select the user to see their tasks'
+        -give them styles.
+
+
 
             
 
