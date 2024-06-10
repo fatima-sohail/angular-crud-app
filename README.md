@@ -9,6 +9,10 @@ create a folder inside ANGULAR-APP:
     -to create a child component: ng g c componentname
     it will be created inside app folder.
 
+    -to create a grand child component inside a child component:
+     ng g c child component/grand-child component e.g 
+     ng g c task/individual-task
+
 Break the project into small components
 
 how to navigate parent and child components
@@ -143,6 +147,17 @@ Create another child component that outputs the name of the user whenever the bu
         -if selectedUser is defined, display the name of the user when a button is clicked,
         else, display: 'select the user to see their tasks'
         -give them styles.
+
+    Display a list of tasks under 'Tasks of user name:.....'
+        -inside task.html, modify the code, 
+        create a section, inside it create a header and a list
+        inside the header, create heading and menu 
+        inside the menu, create a button that adds tasks when you click it.
+        -give it styles in its css
+
+        -create a child component of task component, name it individual-task component.
+        -add its selector inside the list inside the task.html. 
+        -give it style in grandchild component.
 
 
 
