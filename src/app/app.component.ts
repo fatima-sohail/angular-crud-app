@@ -49,7 +49,7 @@ export class AppComponent {
   
  selectedUserId!: string;
 
- get chinesedUser (){
+ get getUser (){
   return this.users.find((user)=> user.id === this.selectedUserId )
 
  }

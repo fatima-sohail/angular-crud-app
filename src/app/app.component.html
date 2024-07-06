@@ -62,8 +62,8 @@
     
   </ul>
 
-  @if (chinesedUser){
-    <app-task [name] = "chinesedUser.name"></app-task>
+  @if (getUser){
+    <app-task [inputUserId] = "getUser.id" [inputUserName] = "getUser.name"></app-task>
   } @else {
     <p id="fallback">Select the user first to see their tasks</p>
   }

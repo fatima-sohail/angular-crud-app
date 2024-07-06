@@ -136,8 +136,8 @@ Create another child component that outputs the name of the user whenever the bu
     -take the help of id property to display the user name instead of name property.
      -nestle together these properties(name, id, avatar) in one output decorator in user component.ts
      -shorten the code in parent.html by introducing *for to reach out to every object in the DUMMY_USERS array.
-     -within the parent.html, bind the name property to chineseUser.
-     -define chineseUser in parent.ts.
+     -within the parent.html, bind the name property to getUser.
+     -define getUser function in parent.ts.
         how?
         -declare userID
         -use event hadler function to update the user id when the button is clicked and use get function to retreive that updated value.
@@ -148,16 +148,41 @@ Create another child component that outputs the name of the user whenever the bu
         else, display: 'select the user to see their tasks'
         -give them styles.
 
-    Display a list of tasks under 'Tasks of user name:.....'
+    Display a list of tasks each having a title, time and summary under 'Tasks of user name:.....'
         -inside task.html, modify the code, 
         create a section, inside it create a header and a list
         inside the header, create heading and menu 
         inside the menu, create a button that adds tasks when you click it.
         -give it styles in its css
+        -the ul list should have a child component that displays individual tasks, how? 
 
         -create a child component of task component, name it individual-task component.
         -add its selector inside the list inside the task.html. 
-        -give it style in grandchild component.
+        -in child.html file:
+            create a heading, time stamp, summary and a button that says complete.
+        -give it style in child.css
+
+    
+Instead of rendering all the tasks of the users, render only those tasks that belong to a specific user when clicked on it.
+ In tasks.ts, create a list of tasks and decorate id with @input, call it inputUserId
+ create a get function that goes through the tasks array and filter the tasks whose userId matches the inputUserId, then store it in getUsertask array and is then returned by get function.
+
+ In app.html,
+    bind the inputUserId to getUser's id. Now we are able to filter the tasks of the selected user and now ablt to use get function in task.html.
+
+In task.html, modify the ul, use @for to minimize the code and render tasks dynamically using get function, tracking tasks using userId.
+
+In individual-task.ts,
+    create a task array, decorate it with @Input and call it inputTask.
+    Now in task.html, bind this inputTask with task array. 
+
+In individual-task.html, modify it by using string interpolation to output title, due date and summary
+
+Now when you click each user, there will be specific tasks displayed for each user that are unique to each user.
+
+
+
+
 
 
 

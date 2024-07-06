@@ -1,6 +1,6 @@
 <!-- <h2>Tasks of {{name}}</h2> -->
 
-<section id="tasks">
+<!-- <section id="tasks">
     <header>
         <h2>Tasks of {{name}}</h2>
         <menu>
@@ -19,6 +19,26 @@
             <app-individual-task></app-individual-task>
         </li>
     </ul>
+</section> -->
+
+<!-- use @for property  -->
+<section id="tasks">
+    <header>
+        <h2>Tasks of {{inputUserName}}</h2>
+        <menu>
+            <button>Add Task</button>
+        </menu>
+    </header>
+    
+    <ul>
+        @for (task of getUserTasks; track task.id){
+            <li>
+                <app-individual-task [inputTask] = "task" (complete)="OnComplete($event)"></app-individual-task>
+            </li>
+        }   
+        
+    </ul>
 </section>
+
 
 
