@@ -22,11 +22,40 @@
 </section> -->
 
 <!-- use @for property  -->
-<section id="tasks">
+
+<!-- --------------------------------------------------------------------------------------------- -->
+<!-- <section id="tasks">
     <header>
         <h2>Tasks of {{inputUserName}}</h2>
         <menu>
             <button>Add Task</button>
+        </menu>
+    </header>
+    
+    <ul>
+        @for (task of getUserTasks; track task.id){
+            <li>
+                <app-individual-task [inputTask] = "task" (complete)="OnComplete($event)"></app-individual-task>
+            </li>
+        }   
+        
+    </ul>
+</section> -->
+
+<!-- -------------------------------------------------------------------------------------------- -->
+
+<!-- add another child component(new-task.component) and click event on button Add Task -->
+
+
+@if(isAddingTask){
+    <app-new-task></app-new-task>
+}
+<section id="tasks">
+   
+    <header>
+        <h2>Tasks of {{inputUserName}}</h2>
+        <menu>
+            <button (click)="onStartAddTask()">Add Task</button>
         </menu>
     </header>
     

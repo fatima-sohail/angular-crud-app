@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { IndividualTaskComponent } from "./individual-task/individual-task.component";
+import { NewTaskComponent } from './new-task/new-task.component';
+
 
 
 @Component({
@@ -7,13 +9,15 @@ import { IndividualTaskComponent } from "./individual-task/individual-task.compo
     standalone: true,
     templateUrl: './task.component.html',
     styleUrl: './task.component.css',
-    imports: [IndividualTaskComponent]
+    imports: [IndividualTaskComponent, NewTaskComponent]
 })
 
 export class TaskComponent {
 
   @Input() inputUserName!: string;
   @Input() inputUserId!: string;
+
+  isAddingTask = false;
 
   tasks = [
     {
@@ -47,6 +51,10 @@ export class TaskComponent {
 
   OnComplete(id: string){
     this.tasks = this.tasks.filter((task)=> task.id !== id)
+  }
+
+  onStartAddTask (){
+    this.isAddingTask = true;
   }
 
 }
